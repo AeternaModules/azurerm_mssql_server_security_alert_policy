@@ -1,6 +1,6 @@
-variable "mssql_server_security_alert_policys" {
+variable "mssql_server_security_alert_policies" {
   description = <<EOT
-Map of mssql_server_security_alert_policys, attributes below
+Map of mssql_server_security_alert_policies, attributes below
 Required:
     - resource_group_name
     - server_name
@@ -19,9 +19,9 @@ EOT
     server_name                = string
     state                      = string
     disabled_alerts            = optional(set(string))
-    email_account_admins       = optional(bool, false)
+    email_account_admins       = optional(bool) # Default: false
     email_addresses            = optional(set(string))
-    retention_days             = optional(number, 0)
+    retention_days             = optional(number) # Default: 0
     storage_account_access_key = optional(string)
     storage_endpoint           = optional(string)
   }))

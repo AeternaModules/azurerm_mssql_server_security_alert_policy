@@ -1,5 +1,5 @@
-resource "azurerm_mssql_server_security_alert_policy" "mssql_server_security_alert_policys" {
-  for_each = var.mssql_server_security_alert_policys
+resource "azurerm_mssql_server_security_alert_policy" "mssql_server_security_alert_policies" {
+  for_each = var.mssql_server_security_alert_policies
 
   resource_group_name        = each.value.resource_group_name
   server_name                = each.value.server_name
