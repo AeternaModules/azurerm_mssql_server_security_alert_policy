@@ -1,3 +1,7 @@
+output "mssql_server_security_alert_policies_id" {
+  description = "Map of id values across all mssql_server_security_alert_policies, keyed the same as var.mssql_server_security_alert_policies"
+  value       = { for k, v in azurerm_mssql_server_security_alert_policy.mssql_server_security_alert_policies : k => v.id }
+}
 output "mssql_server_security_alert_policies_disabled_alerts" {
   description = "Map of disabled_alerts values across all mssql_server_security_alert_policies, keyed the same as var.mssql_server_security_alert_policies"
   value       = { for k, v in azurerm_mssql_server_security_alert_policy.mssql_server_security_alert_policies : k => v.disabled_alerts }
