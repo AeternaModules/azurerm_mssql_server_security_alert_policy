@@ -11,19 +11,23 @@ Optional:
     - email_addresses
     - retention_days
     - storage_account_access_key
+    - storage_account_access_key_key_vault_id (alternative to storage_account_access_key - read from Key Vault instead)
+    - storage_account_access_key_key_vault_secret_name (alternative to storage_account_access_key - read from Key Vault instead)
     - storage_endpoint
 EOT
 
   type = map(object({
-    resource_group_name        = string
-    server_name                = string
-    state                      = string
-    disabled_alerts            = optional(set(string))
-    email_account_admins       = optional(bool) # Default: false
-    email_addresses            = optional(set(string))
-    retention_days             = optional(number) # Default: 0
-    storage_account_access_key = optional(string)
-    storage_endpoint           = optional(string)
+    resource_group_name                              = string
+    server_name                                      = string
+    state                                            = string
+    disabled_alerts                                  = optional(set(string))
+    email_account_admins                             = optional(bool) # Default: false
+    email_addresses                                  = optional(set(string))
+    retention_days                                   = optional(number) # Default: 0
+    storage_account_access_key                       = optional(string)
+    storage_account_access_key_key_vault_id          = optional(string)
+    storage_account_access_key_key_vault_secret_name = optional(string)
+    storage_endpoint                                 = optional(string)
   }))
   validation {
     condition = alltrue([
